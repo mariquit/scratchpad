@@ -6,7 +6,7 @@
 # to git-commit
 #
 # usage: make a soft link to this file: 
-#     ln -s ~/git/scratchpad/aws_cloudformation-hook_pre-commit.sh ~/some_project/.git/hooks/pre-commit
+#     ln -s ~/git/scratchpad/aws_cloudformation/cfn-hook_pre-commit.sh ~/some_project/.git/hooks/pre-commit
 
 # list of file extensions to be checked
 EXT="template"

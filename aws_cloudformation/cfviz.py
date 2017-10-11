@@ -4,7 +4,7 @@
 # courtesy of https://github.com/benbc/cloud-formation-viz
 #
 # usage: make a soft link in your PATH to this file: 
-#     ln -s ~/git/scratchpad/cfviz.py ~/bin/cfviz
+#     ln -s ~/git/scratchpad/aws_cloudformation/cfviz.py ~/bin/cfviz
 
 import json
 from numbers import Number
