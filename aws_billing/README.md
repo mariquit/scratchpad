@@ -129,13 +129,14 @@ GROUP BY productname
 ORDER BY 2 DESC LIMIT 5;
 ```
 gives you something like:
-| productname                   | num_instances | num_AZ |
-|:------------------------------|:--------------|:-------|
-| Amazon Elastic Compute Cloud  | 7345          | 9      |
-| AmazonCloudWatch              | 399           | 0      |
-| Amazon Simple Storage Service | 117           | 0      |
-| Amazon RDS Service            | 78            | 3      |
-| Amazon Elastic MapReduce      | 63            | 0      |
+
+| productname | num_instances | num_AZ |
+| --- | --- | --- |
+| Amazon Elastic Compute Cloud | 7345 | 9 |
+| AmazonCloudWatch | 399 | 0 |
+| Amazon Simple Storage Service | 117 | 0 |
+| Amazon RDS Service | 78 | 3 |
+| Amazon Elastic MapReduce | 63 | 0 |
 
 ---
 
@@ -150,13 +151,14 @@ GROUP BY productname
 ORDER BY 2 DESC LIMIT 5;
 ```
 gives you something like:
-| productname                  | cost    |
-|:-----------------------------|:--------|
+
+| productname | cost |
+| --- | --- |
 | Amazon Elastic Compute Cloud | 5943.45 |
-| Amazon RDS Service           | 1405.78 |
-| Amazon Redshift              | 371.50  |
-| Amazon Kinesis               | 285.90  |
-| Amazon DynamoDB              | 211.69  |
+| Amazon RDS Service | 1405.78 |
+| Amazon Redshift | 371.50 |
+| Amazon Kinesis | 285.90 |
+| Amazon DynamoDB | 211.69 |
 
 
 ## Quo Vadis
@@ -204,13 +206,14 @@ ORDER BY 1 DESC
 LIMIT 5;
 ```
 that gives you something like the top 5 EC2 instance types used for the month:
-| num_instances | instance_type | platform | region_short   |
-|:--------------|:--------------|:---------|:---------------|
-| 3218          | t2.micro      | Linux    | ap-southeast-1 |
-| 745           | c4.2xlarge    | Linux    | us-east-1      |
-| 275           | m4.large      | Linux    | ap-southeast-1 |
-| 242           | t2.medium     | Linux    | ap-southeast-1 |
-| 186           | m4.xlarge     | Linux    | us-east-1      |
+
+| num_instances | instance_type | platform | region_short |
+| --- | --- | --- | --- |
+| 3218 | t2.micro | Linux | ap-southeast-1 |
+| 745 | c4.2xlarge | Linux | us-east-1 |
+| 275 | m4.large | Linux | ap-southeast-1 |
+| 242 | t2.medium | Linux | ap-southeast-1 |
+| 186 | m4.xlarge | Linux | us-east-1 |
 
 ---
 
@@ -252,13 +255,14 @@ ORDER BY 1 DESC
 LIMIT 5;
 ```
 that gives you something like the top 5 RDS instance types used for the month:
-| num_instances | instance_type | platform                | region_short   |
-|:--------------|:--------------|:------------------------|:---------------|
-| 62            | db.t2.small   | PostgreSQL              | ap-southeast-1 |
-| 4             | db.t2.small   | MySQL                   | ap-southeast-1 |
-| 3             | db.t2.small   | PostgreSQL              | us-east-1      |
-| 2             | db.t2.medium  | MySQL                   | us-west-2      |
-| 1             | db.t2.micro   | SQL Server Express (LI) | us-west-2      |
+
+| num_instances | instance_type | platform | region_short |
+| --- | --- | --- | --- |
+| 62 | db.t2.small | PostgreSQL | ap-southeast-1 |
+| 4 | db.t2.small | MySQL | ap-southeast-1 |
+| 3 | db.t2.small | PostgreSQL | us-east-1 |
+| 2 | db.t2.medium | MySQL | us-west-2 |
+| 1 | db.t2.micro | SQL Server Express (LI) | us-west-2 |
 
 
 ## Built With
