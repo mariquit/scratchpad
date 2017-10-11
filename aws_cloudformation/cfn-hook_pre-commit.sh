@@ -1,9 +1,7 @@
 #!/bin/bash
 #
 
-# A git hook script to find and fix trailing whitespace
-# in your commits. Bypass it with the --no-verify option
-# to git-commit
+# A git hook script to validate CFN templates
 #
 # usage: make a soft link to this file: 
 #     ln -s ~/git/scratchpad/aws_cloudformation/cfn-hook_pre-commit.sh ~/some_project/.git/hooks/pre-commit
