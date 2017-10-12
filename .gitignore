@@ -19,3 +19,8 @@ Thumbs.db
 *.log
 *.tmp
 *.sqlite
+
+# Special files #
+#################
+*.do_not_push
+*.internal
