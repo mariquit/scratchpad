@@ -22,6 +22,6 @@ RDS_HEADER=$RDS_SRC.header.csv
 [ -e "$RDS_HEADER" ] || echo "\033[33mExtracting\033[0m header ..."
 [ -e "$RDS_HEADER" ] || cat $RDS_SRC | head -6 | tail -1 > $RDS_HEADER
 [ -e "$RDS_CSV" ] || echo "\033[33mTrimming\033[0m price list ..."
-[ -e "$RDS_CSV" ] || cat $RDS_SRC | grep $GREP_OPTS -e "serviceCode" | grep -v -e "3yr" -e " per [GMT]B " | csvfix-pricing-rds - | tee $RDS_CSV | wc -l
+[ -e "$RDS_CSV" ] || cat $RDS_SRC | grep $GREP_OPTS -e "serviceCode" | grep -v -e "3yr" -e " per [GMT]B " -e " GB-[mM]onth" -e " IOPS-[mM]onth" -e "I/O requests" | csvfix-pricing-rds - | tee $RDS_CSV | wc -l
 
 echo "\033[32mDone.\033[0m"

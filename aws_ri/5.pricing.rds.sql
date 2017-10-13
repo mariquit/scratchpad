@@ -5,7 +5,7 @@ CREATE TABLE raw_pricing_rds
 ( sku VARCHAR( 18 )
 , termcode VARCHAR( 12 )
 , termtype VARCHAR( 8 )
-, description VARCHAR( 247 )
+, description VARCHAR( 40 )
 , effectdate date
 , unit VARCHAR( 8 )
 , price FLOAT(8)
@@ -13,12 +13,12 @@ CREATE TABLE raw_pricing_rds
 , region_name VARCHAR( 24 )
 , instance_type VARCHAR( 15 )
 , current_gen VARCHAR( 3 )
-, tenancy VARCHAR( 10 )
-, platform VARCHAR( 10 )
+, platform VARCHAR( 12 )
 , edition varchar( 12 )
 , licensing VARCHAR( 22 )
-, deployment varchar( 30 )
+, deployment varchar( 28 )
 , sriov VARCHAR( 3 )
+, norm_factor varchar( 3 )
 );
 
 COPY raw_pricing_rds
@@ -28,7 +28,7 @@ NULL AS ''
 CSV HEADER;
 
 
---UPDATE raw_pricing_rds SET purchase_option = 'On-Demand' WHERE purchase_option IS NULL AND termtype = 'OnDemand';
+UPDATE raw_pricing_rds SET purchase_option = 'On-Demand' WHERE purchase_option IS NULL AND termtype = 'OnDemand';
 
 /*
 DROP TABLE IF EXISTS lookup_sku_rds;

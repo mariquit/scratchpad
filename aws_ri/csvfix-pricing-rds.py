@@ -20,16 +20,18 @@ try:
     r = row[5-1]
     t = row[20-1]
     # remove leading text from description
-    #r = re.sub('\$.* per On Demand ', '', r)
-    #r = re.sub('USD .* per ', '', r)
+    r = re.sub('\$.* per ', '', r)
+    r = re.sub('USD .* per ', '', r)
+    r = re.sub('RDS.*running ', '', r)
 
     # remove instance name from description
     r = re.sub(',', '', r)
-    #r = re.sub(' ' + t + ' .*', '', r)
+    r = re.sub(' ' + t + ' .*', '', r)
+    r = re.sub(' db.m4.10xl res.*', '', r)
 
     for n in range(len(row)):
       if (n+1) in a:
-        if (n+1) == 49:
+        if (n+1) == 50:
             print "%s" % (row[n])
         else:
           if (n+1) == 5:
