@@ -7,7 +7,6 @@ SELECT
   , split_part( usagetype,'Usage:',2 ) AS instance_type
   , split_part( split_part( itemdescription,'running ',2 ),split_part( usagetype,'Usage:',2 ),1 ) AS platform
   , availabilityzone
-  , SUBSTRING(availabilityzone,1,POSITION('-' IN SUBSTRING(availabilityzone,4,LENGTH(availabilityzone)))+4) AS region_short
   , reservedinstance
   , unblendedcost
   , usagequantity
@@ -33,7 +32,6 @@ SELECT
   , split_part( usagetype,'Usage:',2 ) AS instance_type
   , split_part( split_part( itemdescription,'running ',2 ),split_part( usagetype,'Usage:',2 ),1 ) AS platform
   , availabilityzone
-  , SUBSTRING(availabilityzone,1,POSITION('-' IN SUBSTRING(availabilityzone,4,LENGTH(availabilityzone)))+4) AS region_short
   , reservedinstance
   , unblendedcost
   , usagequantity
@@ -59,7 +57,6 @@ SELECT
   , split_part( usagetype,'Usage:',2 ) AS instance_type
   , split_part( split_part( itemdescription,'running ',2 ),split_part( usagetype,'Usage:',2 ),1 ) AS platform
   , availabilityzone
-  , SUBSTRING(availabilityzone,1,POSITION('-' IN SUBSTRING(availabilityzone,4,LENGTH(availabilityzone)))+4) AS region_short
   , reservedinstance
   , unblendedcost
   , usagequantity
@@ -74,7 +71,7 @@ SELECT
   , usageenddate
   , '4'::INTEGER AS weight
 FROM dbr201709
-WHERE productname ILIKE '%rds service%'
+WHERE productname ILIKE '%relational database%'
 AND operation ILIKE '%createdbinstance%'
 AND usagetype ILIKE '%instanceusage%'
 AND recordtype = 'LineItem'
@@ -86,15 +83,18 @@ DROP TABLE IF EXISTS rds_usage;
 
 CREATE TABLE rds_usage
 AS
-SELECT linkedaccountid, instance_id, a.yearmon, reservedinstance, availabilityzone, region_short, instance_type, platform
+SELECT linkedaccountid, instance_id, a.yearmon
+, reservedinstance, availabilityzone, instance_type, platform
 , sum(unblendedcost)::FLOAT(8) AS usagecosts
 , sum(hours) AS usagehours
-, max(hours_in_month) as hours_in_month
+--, max(hours_in_month) as hours_in_month
 , (sum(hours) / max(hours_in_month) * 100)::float(8) AS usagepct
 , weight
 FROM rds a, lookup_days b
 WHERE a.yearmon = b.yearmon
-GROUP BY linkedaccountid, instance_id, a.yearmon, reservedinstance, availabilityzone, region_short, instance_type, platform, weight
+GROUP BY linkedaccountid, instance_id, a.yearmon
+, reservedinstance, availabilityzone,  instance_type
+, platform, weight
 ORDER BY linkedaccountid, instance_id, a.yearmon DESC;
 
 /*
