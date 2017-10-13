@@ -264,6 +264,9 @@ that gives you something like the top 5 RDS instance types used for the month:
 | 2 | db.t2.medium | MySQL | us-west-2 |
 | 1 | db.t2.micro | SQL Server Express (LI) | us-west-2 |
 
+### Bonus content
+
+You now have the ability to do your own Reserved Instance analysis if you couple your detailed billing report data with the AWS pricing data.  See [aws_ri](../aws_ri) project for details.
 
 ## Built With
 
